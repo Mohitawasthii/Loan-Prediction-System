@@ -1,169 +1,196 @@
-# Loan-Prediction-System
-End-to-end Loan Prediction System using Python (Pandas, Scikit-learn) covering EDA, pre-processing, model training, evaluation, and deployment with real-world dataset.
-# 🏦 Loan Prediction System (End-to-End Data Science Project)
+# 🏦 Loan Approval Prediction System
 
-## 📌 Project Overview
-
-This project builds a complete **Machine Learning pipeline** to predict whether a loan will be approved or not based on applicant details.
-
-It covers the full lifecycle of a Data Science project:
-
-* 📊 Exploratory Data Analysis (EDA)
-* 🧹 Data Preprocessing
-* 🤖 Model Training & Selection
-* 📈 Performance Evaluation
-* 🚀 Model Deployment
+🚀 **End-to-End Machine Learning Project | Production-Ready | Deployable API**
 
 ---
 
-## 📂 Dataset
+## 📌 Overview
 
-* **File:** `Loan_Train.csv`
-* Contains applicant information such as:
+This project builds a **Loan Approval Prediction System** using Machine Learning to automate loan approval decisions based on applicant data.
 
-  * Gender
-  * Marital Status
-  * Income
-  * Loan Amount
-  * Credit History
-  * Loan Status (Target)
+It covers the complete ML lifecycle:
+✔ Data Cleaning
+✔ Exploratory Data Analysis (EDA)
+✔ Feature Engineering
+✔ Model Training & Evaluation
+✔ Deployment (API Ready)
+
+---
+
+## 🎯 Problem Statement
+
+Financial institutions receive thousands of loan applications.
+Manual processing is slow, error-prone, and inefficient.
+
+👉 This system predicts whether a loan should be approved or rejected using historical data.
+
+---
+
+## 📊 Dataset Features
+
+| Feature           | Description            |
+| ----------------- | ---------------------- |
+| Gender            | Applicant gender       |
+| Married           | Marital status         |
+| Education         | Education level        |
+| ApplicantIncome   | Income of applicant    |
+| CoapplicantIncome | Income of co-applicant |
+| LoanAmount        | Loan amount            |
+| Loan_Amount_Term  | Loan duration          |
+| Credit_History    | Credit score/history   |
+| Property_Area     | Urban/Semi-Urban/Rural |
+| Loan_Status       | Target variable        |
 
 ---
 
 ## ⚙️ Tech Stack
 
-* **Language:** Python 🐍
-* **Libraries:**
-
-  * Pandas
-  * NumPy
-  * Matplotlib & Seaborn
-  * Scikit-learn
+* 🐍 Python
+* 📊 Pandas, NumPy
+* 📈 Matplotlib, Seaborn
+* 🤖 Scikit-learn, XGBoost
+* 🌐 Flask (Deployment)
+* 💾 Joblib (Model Saving)
 
 ---
 
-## 🔍 Exploratory Data Analysis (EDA)
+## 🔍 Exploratory Data Analysis
 
 * Checked missing values
-* Visualized target distribution
-* Correlation heatmap
-* Feature relationships
+* Visualized distributions
+* Correlation analysis
+* Class imbalance detection
 
 ---
 
 ## 🧹 Data Preprocessing
 
-* Handled missing values using:
-
-  * Median (numerical features)
-  * Mode (categorical features)
-* Encoded categorical variables using Label Encoding
-* Feature Scaling using StandardScaler
+* Handled missing values (Mean/Median/Mode)
+* Label Encoding for categorical variables
+* Feature scaling using StandardScaler
 
 ---
 
-## 🤖 Model Training
+## 🤖 Models Used
 
-Multiple models were trained:
-
-* Logistic Regression
-* Decision Tree
-* Random Forest ⭐ (Best Model)
+| Model               | Purpose                    |
+| ------------------- | -------------------------- |
+| Logistic Regression | Baseline                   |
+| Random Forest       | Robust performance         |
+| XGBoost             | High accuracy (Best Model) |
 
 ---
 
-## 📈 Model Performance
+## 🏆 Model Performance
 
+* Accuracy: **~80–90%** (depending on tuning)
 * Evaluated using:
 
-  * Accuracy Score
   * Confusion Matrix
-  * Classification Report
-
-👉 **Best Model:** Random Forest Classifier
-
----
-
-## 🚀 Deployment
-
-The trained model is saved using **Pickle**:
-
-```bash
-loan_model.pkl
-scaler.pkl
-```
-
-You can load and use it for predictions:
-
-```python
-import pickle
-
-model = pickle.load(open("loan_model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
-```
-
----
-
-## ▶️ How to Run the Project
-
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/your-username/loan-prediction.git
-cd loan-prediction
-```
-
-### 2️⃣ Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3️⃣ Run the Script
-
-```bash
-python main.py
-```
+  * Precision / Recall / F1-score
 
 ---
 
 ## 📁 Project Structure
 
 ```
-├── Loan_Train.csv
-├── main.py
-├── loan_model.pkl
-├── scaler.pkl
-├── README.md
-└── requirements.txt
+loan-prediction/
+│── data/
+│   └── Loan_Train.csv
+│
+│── notebooks/
+│   └── EDA_and_Model.ipynb
+│
+│── models/
+│   ├── loan_model.pkl
+│   └── scaler.pkl
+│
+│── app.py
+│── requirements.txt
+│── README.md
 ```
 
 ---
 
-## 💡 Key Learnings
+## 🚀 How to Run
 
-* Handling missing data effectively
-* Importance of feature scaling
-* Model comparison and selection
-* End-to-end ML pipeline development
+### 🔹 1. Clone Repository
+
+```bash
+git clone https://github.com/yourusername/loan-prediction.git
+cd loan-prediction
+```
+
+### 🔹 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 🔹 3. Run Model Training
+
+```bash
+python train.py
+```
+
+### 🔹 4. Run API
+
+```bash
+python app.py
+```
 
 ---
 
-## 📌 Future Improvements
+## 🌐 API Endpoint
 
-* Hyperparameter tuning
-* Use advanced models (XGBoost, LightGBM)
-* Build a web app using Flask/Streamlit
+**POST /predict**
+
+### Request:
+
+```json
+{
+  "features": [values...]
+}
+```
+
+### Response:
+
+```json
+{
+  "prediction": 1
+}
+```
 
 ---
 
-## 🙌 Author
+## 📈 Future Improvements
+
+* Hyperparameter tuning (GridSearchCV / Optuna)
+* Feature engineering (Total Income, EMI ratio)
+* Handling imbalance using SMOTE
+* Deploy on AWS / Azure
+* Build Streamlit Web UI
+
+---
+
+## 🧠 Key Learnings
+
+* End-to-end ML pipeline design
+* Handling real-world missing data
+* Model comparison & evaluation
+* Deployment readiness
+
+---
+
+## 👨‍💻 Author
 
 **Mohit Awasthi**
-📧 Connect with me for collaboration
+💼 Aspiring Data Scientist | ML Engineer
 
 ---
 
 ## ⭐ If you like this project
 
-Give it a ⭐ on GitHub!
+Give it a ⭐ on GitHub and feel free to fork!
+
+---
